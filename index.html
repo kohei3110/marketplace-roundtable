@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Microsoft 365 Copilot との連携を、自社サービスの販売にどうつなげるか。先行事例と公開・販売の実務を紹介する、ISV・パートナー企業向けの招待制イベント。2026年11月2日、Microsoft 品川本社にて開催。">
+  <title>Microsoft 365 Copilot × Marketplace ラウンドテーブル｜2026年11月2日・品川</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: var(--cp-bg-elevated);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      line-break: strict;
+      overflow-wrap: anywhere;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+    h1, h2, h3 { line-height: 1.5; }
+    h2 { font-size: 26px; font-weight: 700; }
+    h3 { font-size: 20px; font-weight: 600; }
+    h3 + p { margin-top: 12px; }
+    p + p { margin-top: 16px; }
+    a { color: var(--cp-accent); text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--cp-accent);
+      outline-offset: 5px;
+    }
+    strong { font-weight: 600; }
+    .wrap { width: 100%; max-width: 1088px; margin-inline: auto; padding-inline: 32px; }
+    .small { font-size: 14px; color: var(--cp-text-soft); }
+    .skip-link { position: absolute; top: 12px; left: 12px; padding: 12px 20px; background: var(--cp-surface); transform: translateY(-180%); z-index: 1; }
+    .skip-link:focus { transform: none; }
+
+    .masthead { border-bottom: 1px solid var(--cp-border); }
+    .masthead .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; padding-block: 16px; }
+    .brand { font-size: 17px; font-weight: 600; }
+    .masthead-note { margin: 0; font-size: 14px; color: var(--cp-text-soft); }
+    .hero { padding-block: 56px 48px; background: var(--cp-bg); border-bottom: 1px solid var(--cp-border); }
+    .event-name { font-size: 16px; font-weight: 600; }
+    h1 { margin-top: 20px; font-size: clamp(30px, 4vw, 46px); line-height: 1.5; letter-spacing: -.025em; }
+    .lead { margin-top: 24px; max-width: 46em; font-size: 17px; }
+    .audience { margin-top: 12px; color: var(--cp-text-soft); }
+    .event-facts { display: grid; grid-template-columns: 1.5fr 1.2fr .9fr .5fr; gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--cp-border); }
+    .event-facts dt { font-size: 13px; color: var(--cp-text-soft); margin-bottom: 4px; }
+    .event-facts dd { font-size: 17px; font-weight: 600; line-height: 1.65; }
+    .event-facts dd span { display: block; font-size: 14px; font-weight: 400; color: var(--cp-text-soft); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 28px; }
+    .button { display: inline-block; padding: 12px 28px; border: 1px solid var(--cp-accent); border-radius: .625rem; background: var(--cp-accent); color: var(--cp-accent-fg); font-weight: 600; line-height: 1.5; text-decoration: none; text-align: center; }
+    .button:hover { background: var(--cp-accent-hover); border-color: var(--cp-accent-hover); text-decoration: none; }
+    .text-link { color: var(--cp-text); font-size: 15px; }
+    .deadline { margin-top: 12px; font-size: 14px; color: var(--cp-text-soft); }
+
+    .section { padding-block: 48px; border-bottom: 1px solid var(--cp-border); }
+    .section-layout { display: grid; grid-template-columns: 216px minmax(0, 1fr); gap: 48px; }
+    .section-label p { margin-top: 12px; font-size: 14px; color: var(--cp-text-soft); }
+    .section-body > * + * { margin-top: 24px; }
+    .section-body p { color: var(--cp-text); }
+    .case-label { margin-bottom: 8px; color: var(--cp-accent); font-size: 14px; font-weight: 600; }
+    .case-title { font-size: 25px; }
+    .case-copy { margin-top: 16px; }
+    .topic { padding-top: 24px; border-top: 1px solid var(--cp-border); }
+    .topic p { margin-top: 8px; }
+    .work-note { border-left: 3px solid var(--cp-accent); padding-left: 20px; }
+    .work-note p { margin-top: 8px; }
+    .hosts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .hosts dt { font-size: 14px; color: var(--cp-text-soft); line-height: 1.6; }
+    .hosts dd { font-size: 20px; font-weight: 600; margin-top: 8px; }
+    .hosts-section { padding-block: 32px; }
+    .hosts-section h2 { font-size: 22px; }
+
+    .program-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; margin-bottom: 24px; }
+    .program-heading p { margin: 0; font-size: 14px; color: var(--cp-text-soft); }
+    .agenda { padding: 0; list-style: none; border-top: 1px solid var(--cp-border-strong); }
+    .agenda li { display: grid; grid-template-columns: 124px minmax(0, 1fr) 132px; gap: 24px; padding-block: 20px; border-bottom: 1px solid var(--cp-border); }
+    .agenda-time { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .agenda h3 { font-size: 18px; }
+    .agenda-description { margin-top: 4px; color: var(--cp-text-soft); font-size: 15px; }
+    .agenda-speaker { margin: 0; font-size: 14px; color: var(--cp-text-soft); }
+    .agenda .break { padding-block: 12px; color: var(--cp-text-soft); }
+    .agenda .break h3 { font-size: 16px; font-weight: 400; }
+
+    .registration { background: var(--cp-bg); }
+    .registration h3 { font-size: 22px; }
+    .registration .actions { margin-top: 20px; }
+    .registration p.small { margin-top: 20px; }
+    .support-intro { margin-bottom: 24px; }
+    .support-conditions { margin-top: 16px; padding-left: 20px; border-left: 3px solid var(--cp-border-strong); }
+    .support-conditions strong { display: block; margin-bottom: 4px; }
+    .support-conditions p { margin: 0; font-size: 15px; }
+    details { margin-top: 20px; border-block: 1px solid var(--cp-border); }
+    summary { padding-block: 16px; cursor: pointer; font-weight: 600; }
+    summary::marker { color: var(--cp-accent); }
+    .support-schedule { padding: 0 0 8px; list-style: none; }
+    .support-schedule li { display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 16px; padding-block: 12px; }
+    .support-schedule b { font-weight: 600; }
+    .support-detail-note { padding-bottom: 20px; font-size: 14px; color: var(--cp-text-soft); }
+    .opportunities { margin-top: 24px; }
+    .opportunities h3 { margin-bottom: 8px; }
+    .opportunities p + p { margin-top: 8px; }
+    .faq { display: grid; gap: 24px; }
+    .faq dt { font-weight: 600; }
+    .faq dd { margin-top: 8px; }
+    .faq > div + div { padding-top: 24px; border-top: 1px solid var(--cp-border); }
+    footer { padding-block: 40px; background: var(--cp-bg); }
+    footer h2 { font-size: 20px; margin-bottom: 12px; }
+    .footer-notes { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--cp-border); font-size: 13px; color: var(--cp-text-soft); }
+    .footer-notes p + p { margin-top: 8px; }
+
+    @media (max-width: 840px) {
+      .section-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .section-label p { margin-top: 4px; }
+      .event-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .agenda li { grid-template-columns: 112px minmax(0, 1fr); gap: 4px 20px; }
+      .agenda-time { grid-column: 1; grid-row: 1 / span 2; }
+      .agenda-content { grid-column: 2; }
+      .agenda-speaker { grid-column: 2; }
+    }
+    @media (max-width: 520px) {
+      .wrap { padding-inline: 20px; }
+      .masthead .wrap { min-height: 56px; padding-block: 12px; }
+      .masthead-note { display: none; }
+      .hero { padding-block: 32px; }
+      .event-name { font-size: 14px; }
+      h1 { margin-top: 16px; font-size: 30px; line-height: 1.55; }
+      .lead { margin-top: 20px; font-size: 16px; }
+      .audience { font-size: 15px; }
+      .event-facts { gap: 20px 16px; margin-top: 24px; }
+      .event-facts dd { font-size: 16px; }
+      .actions { gap: 16px; margin-top: 24px; }
+      .button { padding-inline: 24px; }
+      .section { padding-block: 32px; }
+      h2 { font-size: 24px; }
+      .case-title { font-size: 23px; }
+      .hosts { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+      .hosts > div { display: grid; grid-template-columns: minmax(0, 1fr) 108px; gap: 16px; align-items: baseline; }
+      .hosts dd { margin-top: 0; font-size: 18px; }
+      .agenda li { grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; padding-block: 16px; }
+      .agenda-time { font-size: 14px; }
+      .agenda-end { display: block; }
+      .agenda h3 { font-size: 17px; }
+      .agenda-description { font-size: 14px; }
+      .support-schedule li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      footer { padding-block: 32px; }
+    }
+
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { font-size: 11px; background: var(--cp-surface); }
+      .wrap { max-width: none; padding: 0; }
+      .masthead, .skip-link, .hero .actions, .hero .deadline { display: none; }
+      .hero, .registration, footer { background: var(--cp-surface); }
+      .hero { padding-block: 0 20px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 18px; }
+      h3, .case-title { font-size: 16px; }
+      .lead, .event-name, .event-facts dd { font-size: 12px; }
+      .event-facts { grid-template-columns: 1.5fr 1.2fr .9fr .5fr; margin-top: 16px; padding-top: 12px; }
+      .event-facts dt, .event-facts dd span, .audience, .small { font-size: 10px; }
+      .section { padding-block: 20px; }
+      .section-layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .section-body > * + * { margin-top: 16px; }
+      .topic { padding-top: 16px; }
+      .hosts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hosts > div { display: block; }
+      .hosts dt, .hosts dd { font-size: 11px; }
+      .agenda li { grid-template-columns: 92px minmax(0, 1fr) 100px; padding-block: 10px; gap: 12px; break-inside: avoid; }
+      .agenda-time, .agenda-speaker, .agenda-description, .agenda h3 { font-size: 11px; }
+      .agenda-time, .agenda-content, .agenda-speaker { grid-column: auto; grid-row: auto; }
+      .agenda-end { display: inline; }
+      .support-conditions p, .support-detail-note { font-size: 11px; }
+      .support-schedule li { grid-template-columns: 112px minmax(0, 1fr); padding-block: 8px; }
+      .button { padding: 0; border: 0; border-radius: 0; background: var(--cp-surface); color: var(--cp-text); text-align: left; }
+      .button::after { content: " (" attr(href) ")"; font-weight: 400; }
+      .faq { gap: 16px; }
+      .faq > div + div { padding-top: 16px; }
+      .faq > div, .support-conditions, .support-schedule li { break-inside: avoid; }
+      h2, h3, summary { break-after: avoid; }
+      footer { padding-block: 20px 0; }
+      .footer-notes { font-size: 10px; margin-top: 16px; padding-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <div class="masthead">
+    <div class="wrap">
+      <p class="brand">Microsoft Japan</p>
+      <p class="masthead-note">ISV・パートナー企業向け／ご招待制</p>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="event-name">Microsoft 365 Copilot × Marketplace ラウンドテーブル</p>
+      <h1>Copilot との連携を、<br>自社サービスの販売にどうつなげるか。</h1>
+      <p class="lead">自社のデータや SaaS を Copilot と連携させ、どう販売するか。先行事例と公開・販売の実務をご紹介します。後半には、自社サービスを題材にした20分間のワークを設けています。</p>
+      <p class="audience">ISV・パートナー企業の事業責任者・プロダクト責任者向け。</p>
+      <dl class="event-facts">
+        <div>
+          <dt>日時</dt>
+          <dd><time datetime="2026-11-02">2026年11月2日（月）</time><span>14:00〜17:00／懇親会 17:15〜18:15</span></dd>
+        </div>
+        <div>
+          <dt>会場</dt>
+          <dd>Microsoft 品川本社<span>詳細は参加確定後にご案内</span></dd>
+        </div>
+        <div>
+          <dt>定員</dt>
+          <dd>8〜10社・招待制<span>1社2名まで</span></dd>
+        </div>
+        <div>
+          <dt>参加費</dt>
+          <dd>無料</dd>
+        </div>
+      </dl>
+      <div class="actions">
+        <a class="button" href="https://forms.cloud.microsoft/r/UVAkq5nH3A">参加を申し込む</a>
+        <a class="text-link" href="#program">プログラムを見る</a>
+      </div>
+      <p class="deadline">お申し込みは<time datetime="2026-11-01">11月1日（日）</time>まで。ご登録後、担当者から参加確定のご連絡をします。</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="theme" class="section" aria-labelledby="theme-heading">
+      <div class="wrap section-layout">
+        <div class="section-label">
+          <h2 id="theme-heading">当日お話しすること</h2>
+          <p>事例と、公開・販売の実務から。</p>
+        </div>
+        <div class="section-body">
+          <div id="case">
+            <p class="case-label">先行事例｜14:40〜15:20</p>
+            <h3 class="case-title">自社のデータを、Copilot で使えるサービスに。</h3>
+            <p class="case-copy">自社のデータを AI エージェントとして Microsoft 365 Copilot に公開した企業の取り組みを紹介します。公開までにどんな準備を進めたのか。公開後、大手企業との接点がどう生まれたのか。当日は、その経緯をお話しします。</p>
+          </div>
+          <div class="topic">
+            <h3>無償で利用を広げるか、有料で提供するか。</h3>
+            <p>エージェントやコネクターを使った連携には、無償で利用を広げる方法、有料サービスとして提供する方法、その組み合わせがあります。Microsoft Marketplace での販売や販売パートナーの活用も含め、担当者が説明します。</p>
+          </div>
+          <div class="work-note">
+            <h3>最後は、自社のサービスに置き換えて考えます。</h3>
+            <p>20分間のワークで事業仮説シートを記入し、隣席の方と共有します。どの顧客の課題を解決するのか、どう提供・販売するのか。社内で確認したいことや、その後の進め方を書き出す時間です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hosts-section" aria-labelledby="hosts-heading">
+      <div class="wrap section-layout">
+        <div class="section-label">
+          <h2 id="hosts-heading">当日の担当者</h2>
+          <p>Microsoft Japan</p>
+        </div>
+        <dl class="hosts">
+          <div><dt>Marketplace 担当</dt><dd>黒田</dd></div>
+          <div><dt>Microsoft 365 Copilot<br>拡張担当</dt><dd>石井</dd></div>
+          <div><dt>Digital Native 担当・進行</dt><dd>斎藤 功平</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="program" class="section" aria-labelledby="program-heading">
+      <div class="wrap">
+        <div class="program-heading">
+          <h2 id="program-heading">プログラム</h2>
+          <p>2026年11月2日（月）14:00〜17:00</p>
+        </div>
+        <ol class="agenda" role="list">
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T14:00:00+09:00">14:00</time><span class="agenda-end">〜<time datetime="2026-11-02T14:10:00+09:00">14:10</time></span></p>
+            <div class="agenda-content"><h3>はじめに</h3><p class="agenda-description">この会を開く理由と、当日お話ししたいこと。</p></div>
+            <p class="agenda-speaker">Microsoft 斎藤</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T14:10:00+09:00">14:10</time><span class="agenda-end">〜<time datetime="2026-11-02T14:40:00+09:00">14:40</time></span></p>
+            <div class="agenda-content"><h3>Marketplace で販売するという選択肢</h3><p class="agenda-description">データ・AI エージェント企業にとっての機会を、顧客・パートナー・Microsoft 営業それぞれの視点から説明します。</p></div>
+            <p class="agenda-speaker">Microsoft 黒田</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T14:40:00+09:00">14:40</time><span class="agenda-end">〜<time datetime="2026-11-02T15:20:00+09:00">15:20</time></span></p>
+            <div class="agenda-content"><h3>先行事例：Copilot への公開と、その後</h3><p class="agenda-description">自社データをエージェントとして提供するまでの進め方と、公開後に生まれた大手企業との接点。</p></div>
+            <p class="agenda-speaker">事例紹介</p>
+          </li>
+          <li class="break">
+            <p class="agenda-time"><time datetime="2026-11-02T15:20:00+09:00">15:20</time><span class="agenda-end">〜<time datetime="2026-11-02T15:35:00+09:00">15:35</time></span></p>
+            <div class="agenda-content"><h3>休憩</h3></div>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T15:35:00+09:00">15:35</time><span class="agenda-end">〜<time datetime="2026-11-02T16:05:00+09:00">16:05</time></span></p>
+            <div class="agenda-content"><h3>エージェント・コネクターの事業モデル</h3><p class="agenda-description">無償の連携、有料サービス、その組み合わせ。自社に合う提供方法を考えます。</p></div>
+            <p class="agenda-speaker">Microsoft 石井</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T16:05:00+09:00">16:05</time><span class="agenda-end">〜<time datetime="2026-11-02T16:30:00+09:00">16:30</time></span></p>
+            <div class="agenda-content"><h3>公開・販売に向けた準備</h3><p class="agenda-description">Partner Center、審査でつまずきやすい点、課金モデルと Private Offer、Co-sell ready までの進め方、販路の選び方。</p></div>
+            <p class="agenda-speaker">Microsoft 黒田</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T16:30:00+09:00">16:30</time><span class="agenda-end">〜<time datetime="2026-11-02T16:50:00+09:00">16:50</time></span></p>
+            <div class="agenda-content"><h3>自社サービスを題材にしたワーク</h3><p class="agenda-description">事業仮説シートを記入し、隣席の方と共有します。</p></div>
+            <p class="agenda-speaker">参加各社</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T16:50:00+09:00">16:50</time><span class="agenda-end">〜<time datetime="2026-11-02T17:00:00+09:00">17:00</time></span></p>
+            <div class="agenda-content"><h3>まとめ・参加後の支援のご案内</h3></div>
+            <p class="agenda-speaker">Microsoft 斎藤</p>
+          </li>
+          <li>
+            <p class="agenda-time"><time datetime="2026-11-02T17:15:00+09:00">17:15</time><span class="agenda-end">〜<time datetime="2026-11-02T18:15:00+09:00">18:15</time></span></p>
+            <div class="agenda-content"><h3>懇親会</h3></div>
+            <p class="agenda-speaker">全体</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="register" class="section registration" aria-labelledby="register-heading">
+      <div class="wrap section-layout">
+        <div class="section-label">
+          <h2 id="register-heading">参加のお申し込み</h2>
+          <p>ご招待制・8〜10社<br>参加費無料／1社2名まで</p>
+        </div>
+        <div>
+          <h3><time datetime="2026-11-01">2026年11月1日（日）</time>までにお申し込みください。</h3>
+          <p>お名前・会社名・役職・本イベントに期待することなどをご記入ください。複数名でご参加の場合は、お一人ずつお申し込みをお願いします。</p>
+          <p>ご登録後、担当者から順次、参加確定のご連絡をします。Microsoft 品川本社の会場詳細は、参加確定後にご案内します。</p>
+          <div class="actions">
+            <a class="button" id="form-link" href="https://forms.cloud.microsoft/r/UVAkq5nH3A">参加を申し込む</a>
+            <span class="small">Microsoft Forms が開きます</span>
+          </div>
+          <p class="small">フォームをご利用いただけない場合は、担当の Microsoft 営業へ、ご出席者のお名前と役職をお知らせください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section" aria-labelledby="support-heading">
+      <div class="wrap section-layout">
+        <div class="section-label">
+          <h2 id="support-heading">希望する企業向けの<br>個別支援</h2>
+          <p>イベントへの参加とは別に、<br>ご希望を伺います。</p>
+        </div>
+        <div>
+          <p class="support-intro">準備が整った企業から順に、Microsoft の担当チームが設計・実装・公開申請の準備を支援します。開始時に4週間の到達点と、公開申請の目安時期を相談します。</p>
+          <h3>4週間で、公開申請できる状態を目指します。</h3>
+          <p>実装とテストを進めながら、最初のパイロット先と開始時期を相談します。続く約1か月は、申請・審査・公開に向けた対応を支援します。公開時期は、審査などの状況によって前後します。</p>
+          <div class="support-conditions">
+            <strong>集中支援の対象と条件</strong>
+            <p>Copilot 向けのエージェント、コネクター、Cowork plugin、Work IQ API 連携を開発する企業が対象です。<strong>1社以上でのパイロット実施と事例化を前提とします。</strong></p>
+          </div>
+          <details>
+            <summary>集中支援の進め方を見る</summary>
+            <ol class="support-schedule" role="list">
+              <li><b>第1週</b><span>ソリューション設計のワークショップ</span></li>
+              <li><b>第2〜3週</b><span>実装・テスト。オンラインの Q&amp;A で支援します。</span></li>
+              <li><b>第4週</b><span>公開申請の準備状況を確認し、最初のパイロット先と開始時期を相談します。</span></li>
+              <li><b>その後、約1か月</b><span>申請・審査・公開に向けた対応を支援します。</span></li>
+            </ol>
+            <p class="support-detail-note">Partner Center の登録がまだの場合は、支援と並行して進められます。</p>
+          </details>
+          <div class="opportunities">
+            <h3>営業・販売パートナーへのご紹介について</h3>
+            <p>公開とパイロットの準備が整ったサービスには、想定顧客を担当する Microsoft 営業や販売パートナーへのご紹介、Microsoft 主催の業界・製品イベントでの発信機会も、調整のうえ順次ご案内します。</p>
+            <p class="small">いずれも相手先との調整が必要です。ご案内できる内容は、サービスや準備状況によって異なります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section" aria-labelledby="faq-heading">
+      <div class="wrap section-layout">
+        <div class="section-label"><h2 id="faq-heading">よくあるご質問</h2></div>
+        <dl class="faq">
+          <div>
+            <dt>Marketplace への公開経験や、Partner Center の登録がなくても参加できますか？</dt>
+            <dd>ご参加いただけます。Partner Center の登録は、参加後の集中支援と並行して進めることもできます。</dd>
+          </div>
+          <div>
+            <dt>サービスが AWS や Google Cloud 上で動いていても、参加できますか？</dt>
+            <dd>本イベントにはご参加いただけます。Marketplace への公開・販売や各支援制度の適用条件は、サービスの構成・提供方法に応じて確認します。</dd>
+          </div>
+          <div>
+            <dt>顧客ごとの個別見積もりでも、Marketplace で販売できますか？</dt>
+            <dd>Private Offer を利用すると、顧客ごとの価格・取引条件を設定できます。詳しくは、当日の「公開・販売に向けた準備」でご紹介します。</dd>
+          </div>
+          <div>
+            <dt>参加後の個別支援は必須ですか？</dt>
+            <dd>個別支援や集中支援への参加は任意です。当日は、事業仮説シートを使ったワークにご参加いただきます。</dd>
+          </div>
+          <div>
+            <dt>参加費や支援費はかかりますか？</dt>
+            <dd>イベントへの参加と、参加後にご案内する支援は無料です。開発・運用に利用するサービスの料金は、各サービスの条件をご確認ください。</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <h2>お問い合わせ</h2>
+      <p>担当の Microsoft 営業、または事務局までご連絡ください。<br>Microsoft Japan 斎藤 功平：<a href="mailto:koheisaito@microsoft.com">koheisaito@microsoft.com</a></p>
+      <div class="footer-notes">
+        <p>主催：Microsoft Japan（Digital Native／Marketplace／Microsoft 365 Copilot 拡張の各担当チーム）</p>
+        <p>本イベントはご招待制です。ご登録いただいた情報は、本イベントの運営とご参加後のフォローのためにのみ使用し、<a href="https://privacy.microsoft.com/ja-jp/privacystatement">Microsoft のプライバシーに関する声明</a>に基づいて取り扱います。</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const openedForPrint = new Set();
+      let themeBeforePrint = null;
+      window.addEventListener("beforeprint", () => {
+        if (themeBeforePrint === null) {
+          themeBeforePrint = document.documentElement.getAttribute("data-theme");
+        }
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelectorAll("details:not([open])").forEach((detail) => {
+          openedForPrint.add(detail);
+          detail.open = true;
+        });
+      });
+      window.addEventListener("afterprint", () => {
+        if (themeBeforePrint !== null) {
+          document.documentElement.setAttribute("data-theme", themeBeforePrint);
+          themeBeforePrint = null;
+        }
+        openedForPrint.forEach((detail) => { detail.open = false; });
+        openedForPrint.clear();
+      });
+    })();
+  </script>
+</body>
+</html>
